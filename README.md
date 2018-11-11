@@ -16,36 +16,6 @@ yarn start
 
 Then open: [http://localhost:8080](http://localhost:8080)
 
-# Test Staging
-
-**npm**
-```bash
-npm start:staging
-```
-
-**yarn**
-```bash
-yarn start:staging
-```
-
-Then open: [http://localhost:8080](http://localhost:8080)
-
-# Test Production
-
-Run commands with order
-
-**npm**
-```bash
-npm start:production
-```
-
-**yarn**
-```bash
-yarn start:production
-```
-
-Then open: [http://localhost:8080](http://localhost:8080)
-
 # Test Docker
 
 If you don't have Docker installed on your machine. You may want to check out [Docker](https://www.docker.com/).
