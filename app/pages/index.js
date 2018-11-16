@@ -1,27 +1,14 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import Home from '~/app/containers/Home';
-import { fetchData } from '~/app/containers/Home/actions';
 
 class Index extends React.Component {
   static async getInitialProps(context) {
     const { store, req, isServer, res, query } = context;
 
-    if (!query.page || isNaN(query.page)) {
-      query.page = 1;
-    } else {
-      query.page = parseInt(query.page);
-    }
-
     return {
       isServer,
-      query,
+      query
     };
-  }
-
-  componentDidMount() {
-    const { dispatch, query } = this.props;
-    dispatch(fetchData(query));
   }
 
   render() {
@@ -29,13 +16,4 @@ class Index extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    home: state.home,
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  null
-)(Index);
+export default Index;

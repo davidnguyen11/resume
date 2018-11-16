@@ -1,5 +1,5 @@
 import Document, { Head, Main, NextScript } from 'next/document';
-import { ServerStyleSheet } from 'styled-components';
+import styles from '../styles';
 import { APPLE_METAS_LINKS } from '~/app/utils/constants';
 
 export default class ServerDocument extends Document {
@@ -14,9 +14,6 @@ export default class ServerDocument extends Document {
   }
 
   render() {
-    const sheet = new ServerStyleSheet();
-    const main = sheet.collectStyles(<Main />);
-    const styleTags = sheet.getStyleElement();
     const env = `window.ENV = '${process.env.ENV || 'development'}';`;
     return (
       <html>
@@ -24,13 +21,13 @@ export default class ServerDocument extends Document {
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
           <link rel="manifest" href="/static/manifest.json" />
           <link rel="shortcut icon" href="/static/img/favicon.ico" />
+          <style dangerouslySetInnerHTML={{ __html: styles }} />
           {this.renderAppleMetas()}
           {this.renderAppleLinks()}
-          {styleTags}
         </Head>
         <body className="custom_class">
           {this.props.customValue}
-          {main}
+          <Main />
           <script dangerouslySetInnerHTML={{ __html: env }} />
           <NextScript />
         </body>
