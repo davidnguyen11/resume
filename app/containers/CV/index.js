@@ -9,21 +9,17 @@ import Achievement from '~/app/components/Achievement';
 import data from './data'
 class CV extends React.Component {
     render() {
-        const personalInfo = data[0];
-        const workExperience = data[1];
-        const education = data[2];
-        const project = data[3];
-        const skill = data[4];
+        const { 0: personalInfo, 1: workExperience, 2: education, 3: project, 4: skill } = data;
         const achievement = [data[5], data[6]]
         return (<div>
-            <PersonalInfo {...personalInfo} />
-            <WorkExperience {...workExperience} />
-            <Education {...education} />
-            <Project {...project} />
-            <Skill {...skill} />
-            <Achievement data = {achievement} />
+            <PersonalInfo dataSource={personalInfo} />
+            <WorkExperience dataSource={workExperience} />
+            <Education dataSource={education} />
+            <Project dataSource={project} />
+            <Skill dataSource={skill} />
+            <Achievement dataSource={achievement} />
         </div>);
-      }
+    }
 }
 
 export default CV;

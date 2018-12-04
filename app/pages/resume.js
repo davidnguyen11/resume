@@ -5,8 +5,7 @@ import CV from '~/app/containers/CV';
 
 class Resume extends React.Component {
   render() {
-    return <CV { ...this.props}
-    />;
+    return <CV { ...this.props}/>;
   }
 };
 

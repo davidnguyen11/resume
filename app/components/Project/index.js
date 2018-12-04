@@ -14,22 +14,22 @@ const SectionName = styled.h2`
   font-size: 22px;
 `;
 
-function Project(props){
-    const {text, data} = props;
-    return(
-      <SectionWrapper>
-          <SectionName>{text}</SectionName>
-          {data.map((item, idx) => 
-                <SectionWrapper key ={"project"+idx}>
+function Project(props) {
+    const { text, data } = props.dataSource;
+    return (
+        <SectionWrapper>
+            <SectionName>{text}</SectionName>
+            {data.map((item, idx) =>
+                <SectionWrapper key={'project' + idx}>
                     <SectionWrapper><b>{item.project_name}</b>&nbsp;({item.time})</SectionWrapper>
                     <SectionWrapper>
                         <p>{item.description}</p>
                     </SectionWrapper>
-                
+
                 </SectionWrapper>
 
-          )}
-      </SectionWrapper>  
+            )}
+        </SectionWrapper>
     );
 
 }

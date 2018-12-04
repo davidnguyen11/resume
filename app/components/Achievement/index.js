@@ -13,23 +13,23 @@ const SectionName = styled.h2`
   font-size: 22px;
 `;
 
-function Achievement(props){
-    const {data} = props;
-    return(
+function Achievement(props) {
+    const data  = props.dataSource;
+    return (
         <SectionWrapper>
             <SectionWrapper>
                 <SectionName>{data[0].text}</SectionName>
                 <ul>
-                    {data[0].data.map((item,idx)=>
-                        <li key={"award"+idx}>{item}</li>
+                    {data[0].data.map((item, idx) =>
+                        <li key={'award' + idx}>{item}</li>
                     )}
                 </ul>
             </SectionWrapper>
             <SectionWrapper>
                 <SectionName>{data[1].text}</SectionName>
                 <ul>
-                    {data[1].data.map((item,idx)=>
-                        <li key={"publications"+idx}><a href={item.link}>{item.text}</a></li>
+                    {data[1].data.map((item, idx) =>
+                        <li key={'publications' + idx}><a href={item.link}>{item.text}</a></li>
                     )}
                 </ul>
             </SectionWrapper>

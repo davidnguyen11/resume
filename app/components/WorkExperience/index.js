@@ -8,7 +8,7 @@ const SectionWrapper = styled.section`
 `;
 
 const SectionName = styled.h2`
-  width:100%;
+  width: 100%;
   text-align: left;
   font-size: 22px;
 `;
@@ -17,44 +17,44 @@ const CompanyName = styled.h3`
   font-size: 18px;
 `;
 
-const LeftColumn =styled.div`
+const LeftColumn = styled.div`
   width: 70%;
-  float:left;
+  float: left;
 `;
 
 const RightColumn = styled.div`
   width: 30%;
   text-align: right;
-  float:right;
+  float: right;
 `;
 
-
-
-function WorkingExperience(props){
-    const {text,data} = props
-    return (
-        <SectionWrapper>
-             <SectionName>{text}</SectionName>
-            { 
-                data.map((item, key) => <SectionWrapper key={"experience"+key}>
-                    <SectionWrapper>
-                        <LeftColumn key={"lcol"+key}>
-                            <CompanyName key={"cname"+key}>{item.company_name}</CompanyName>
-                            {item.title}
-                        </LeftColumn>
-                        <RightColumn key={"rcol"+key}>
-                            <p>{item.time}</p>
-                        </RightColumn>
-                    </SectionWrapper>
-                    <SectionWrapper>
-                        <ul>
-                            {item.accomplishments.map((item, idx) => <li key={"accomplishment"+idx}>{item}</li>)}
-                        </ul>
-                    </SectionWrapper>
-            </SectionWrapper>)
-            }
+function WorkingExperience(props) {
+  const { text, data } = props.dataSource;
+  return (
+    <SectionWrapper>
+      <SectionName>{text}</SectionName>
+      {data.map((item, key) => (
+        <SectionWrapper key={'experience' + key}>
+          <SectionWrapper>
+            <LeftColumn key={'lcol' + key}>
+              <CompanyName key={'cname' + key}>{item.company_name}</CompanyName>
+              {item.title}
+            </LeftColumn>
+            <RightColumn key={'rcol' + key}>
+              <p>{item.time}</p>
+            </RightColumn>
+          </SectionWrapper>
+          <SectionWrapper>
+            <ul>
+              {item.accomplishments.map((item, idx) => (
+                <li key={'accomplishment' + idx}>{item}</li>
+              ))}
+            </ul>
+          </SectionWrapper>
         </SectionWrapper>
-    );  
-} 
+      ))}
+    </SectionWrapper>
+  );
+}
 
 export default WorkingExperience;

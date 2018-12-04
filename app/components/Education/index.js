@@ -14,13 +14,13 @@ const SectionName = styled.h2`
   font-size: 22px;
 `;
 
-function Education(props){
-    const {text, data} = props;
-    return(
+function Education(props) {
+    const { text, data } = props.dataSource;
+    return (
         <SectionWrapper>
             <SectionName>{text}</SectionName>
-            {data.map((item, idx)=>
-                <SectionWrapper key={"education"+idx}>
+            {data.map((item, idx) =>
+                <SectionWrapper key={'education' + idx}>
                     <SectionWrapper>
                         <b>{item.school_name}</b>,
                         <span> {item.time}</span>,
@@ -29,8 +29,8 @@ function Education(props){
                     </SectionWrapper>
                     <SectionWrapper><i>Publication:</i></SectionWrapper>
                     <ul>
-                        {item.publications.map((item,idx)=>
-                            <li key={"pub"+idx}> {item} </li>
+                        {item.publications.map((item, idx) =>
+                            <li key={'pub' + idx}> {item} </li>
                         )}
                     </ul>
                 </SectionWrapper>

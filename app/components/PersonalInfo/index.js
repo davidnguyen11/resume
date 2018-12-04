@@ -12,7 +12,7 @@ const FullName = styled.h2`
     font-size: 22px;
 `;
 
-const LeftColumn =styled.div`
+const LeftColumn = styled.div`
     width: 40%;
     float:left;
 `;
@@ -25,8 +25,8 @@ const RightColumn = styled.div`
 
 
 
-function PersonalInfo(props){
-    const {name,email,socials} = props
+function PersonalInfo(props) {
+    const { name, email, socials } = props.dataSource
     return (
         <SectionWrapper>
             <LeftColumn>
@@ -34,11 +34,11 @@ function PersonalInfo(props){
             </LeftColumn>
             <RightColumn>
                 <p>{email}</p>
-                {socials.map((s, idx)=> <a href={s} key={"social"+idx}>{s}</a>)}
-           </RightColumn>
-       </SectionWrapper>
+                {socials.map((s, idx) => <a href={s} key={'social' + idx}>{s}</a>)}
+            </RightColumn>
+        </SectionWrapper>
     );
-    
-} 
+
+}
 
 export default PersonalInfo;

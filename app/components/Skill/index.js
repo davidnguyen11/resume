@@ -13,15 +13,15 @@ const SectionName = styled.h2`
   font-size: 22px;
 `;
 
-function Skill(props){
-    const {text, data} = props;
+function Skill(props) {
+    const { text, data } = props.dataSource;
     return (
         <SectionWrapper>
             <SectionName>{text}</SectionName>
             <ul>
-            {data.map((item,idx) =>
-             <li key={"skill"+idx}><b>{item.text}:</b>{item.content}</li>    
-            )}
+                {data.map((item, idx) =>
+                    <li key={'skill' + idx}><b>{item.text}:</b>{item.content}</li>
+                )}
             </ul>
         </SectionWrapper>
     );
